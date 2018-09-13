@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <springProfile name="dev">
+        <Property  name="LOG_PATH" value = "/tmp/log"/>
+    </springProfile>
+
+    <appender name="STDOUT"
+              class="ch.qos.logback.core.ConsoleAppender">
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <Pattern>
+                %d{yyyy-MM-dd HH:mm:ss} %-5level %logger{20} - %msg%n
+            </Pattern>
+        </encoder>
+    </appender>
+
+    <springProfile name="dev">
+        <root level="info">
+            <springProfile name="dev">
+                <appender-ref ref="STDOUT" />
+            </springProfile>
+        </root>
+    </springProfile>
+</configuration>

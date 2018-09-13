@@ -1,0 +1,14 @@
+# Server
+server:
+  port: 18002
+
+# Spring Profile
+spring:
+  profiles:
+    active: dev
+
+# Security
+security:
+  oauth2:
+    resource:
+      filter-order: 3
